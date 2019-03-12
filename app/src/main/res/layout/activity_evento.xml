@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".EventoActivity">
+
+
+    <EditText
+        android:id="@+id/etNombre"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:hint="@string/nombre"
+        android:inputType="text"/>
+
+    <EditText
+        android:id="@+id/etDescripcion"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:hint="@string/descripcion"
+        android:inputType="text"/>
+
+    <EditText
+        android:id="@+id/etPrecio"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:hint="@string/precio"
+        android:inputType="numberDecimal"/>
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+        <EditText
+            android:id="@+id/etX"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:hint="@string/coordenada_x"
+            android:inputType="numberDecimal"/>
+
+        <EditText
+            android:id="@+id/etY"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:hint="@string/coordenada_y"
+            android:inputType="numberDecimal"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btCancelar"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/cancelar"/>
+
+        <Button
+            android:id="@+id/btGuardar"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/guardar"/>
+    </LinearLayout>
+
+</LinearLayout>

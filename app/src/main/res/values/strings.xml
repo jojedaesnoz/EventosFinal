@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">EventosFinal</string>
+    <string name="eventos_madrid">Eventos Madrid</string>
+    <string name="ver_en_mapa">Ver en mapa</string>
+    <string name="ver_lista_de_eventos">Ver lista de eventos</string>
+    <string name="nombre">Nombre</string>
+    <string name="descripcion">Descripción</string>
+    <string name="precio">Precio</string>
+    <string name="coordenada_x">Coordenada X</string>
+    <string name="coordenada_y">Coordenada Y</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="guardar">Guardar</string>
+    <string name="borrar_evento">Borrar evento</string>
+    <string name="modificar_evento">Modificar Evento</string>
+    <string name="salir">Salir</string>
+</resources>

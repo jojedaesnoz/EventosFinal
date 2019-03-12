@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/borrarEvento"
+        android:title="@string/borrar_evento"/>
+
+    <item
+        android:id="@+id/modificarEvento"
+        android:title="@string/modificar_evento"/>
+
+    <item
+        android:id="@+id/salir"
+        android:title="@string/salir"/>
+</menu>
