@@ -6,11 +6,11 @@
     <string name="nombre">Nombre</string>
     <string name="descripcion">Descripción</string>
     <string name="precio">Precio</string>
-    <string name="coordenada_x">Coordenada X</string>
-    <string name="coordenada_y">Coordenada Y</string>
+    <string name="latitud">Latitud</string>
+    <string name="longitud">Longitud</string>
     <string name="cancelar">Cancelar</string>
-    <string name="guardar">Guardar</string>
     <string name="borrar_evento">Borrar evento</string>
     <string name="modificar_evento">Modificar Evento</string>
     <string name="salir">Salir</string>
+    <string name="guardar">Guardar</string>
 </resources>

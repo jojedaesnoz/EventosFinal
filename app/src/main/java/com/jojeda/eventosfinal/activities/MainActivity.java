@@ -1,12 +1,18 @@
-package com.jojeda.eventosfinal;
+package com.jojeda.eventosfinal.activities;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
+import android.widget.Toolbar;
+
+import com.jojeda.eventosfinal.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -17,6 +23,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 		findViewById(R.id.btListado).setOnClickListener(this);
 		findViewById(R.id.btMapas).setOnClickListener(this);
+
 	}
 
 	@Override
@@ -43,18 +50,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		ContextMenu.ContextMenuInfo menuInfo = item.getMenuInfo();
-		switch (item.getItemId()) {
-			case R.id.id1:
-				System.out.println("ITEM1");
-				break;
-			case R.id.id2:
-				System.out.println("ITEM2");
-				break;
-			case R.id.id3:
-				System.out.println("ITEM3");
-				break;
-		}
+		Intent intent = new Intent(this, PreferenciasActivity.class);
+		startActivity(intent);
 		return true;
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+
+		SharedPreferences preferencias = PreferenceManager.getDefaultSharedPreferences(this);
+		String nombreUsuario = preferencias.getString("opcion_nombre_user", "Usuario/a");
+		String mensaje = "Bienvenido/a " + nombreUsuario;
+
+		setTitle(preferencias.getString("opcion_nombre_app", "Eventos de Madrid"));
+		Toast.makeText(this, mensaje, Toast.LENGTH_LONG).show();
 	}
 }

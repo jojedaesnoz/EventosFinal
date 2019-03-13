@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+    <PreferenceCategory android:title="Ajustes">
+        <!--<ListPreference-->
+            <!--android:key="tamano"-->
+            <!--android:title="Tamaño"-->
+            <!--android:summary="Elige tu tamaño, a tu gusto"-->
+            <!--android:dialogTitle="Indicar color"-->
+            <!--android:entries="@array/tamano"-->
+            <!--android:entryValues="@array/tamano2"/>-->
+        <EditTextPreference
+            android:key="opcion_nombre_app"
+            android:title="Nombre app"
+            android:summary="Cómo quieres que se llame la app"
+            android:dialogTitle="Introduce un valor" />
+        <EditTextPreference
+            android:key="opcion_nombre_user"
+            android:title="Nombre de usuario"
+            android:summary="Cómo quieres que te llame la app"
+            android:dialogTitle="Introduce un valor" />
+        <SwitchPreference
+            android:key="opcion_edicion"
+            android:title="Modo edición"
+            android:summaryOn="Modo edición activado"
+            android:summaryOff="Modo edición desactivado"
+            android:switchTextOn="true"
+            android:switchTextOff="false"/>
+        <!--<ListPreference-->
+            <!--android:key="color"-->
+            <!--android:title="Color"-->
+            <!--android:summary="Diseño de la aplicacion"-->
+            <!--android:dialogTitle="Indicar color"-->
+            <!--android:entries="@array/color"-->
+            <!--android:entryValues="@array/colores"-->
+            <!--/>-->
+    </PreferenceCategory>
+</PreferenceScreen>

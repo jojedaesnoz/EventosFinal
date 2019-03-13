@@ -1,59 +1,77 @@
 package com.jojeda.eventosfinal.util;
 
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.jojeda.eventosfinal.R;
 import com.jojeda.eventosfinal.base.Evento;
 
-import java.util.ArrayList;
+import java.util.List;
 
-public class EventoAdapter extends RecyclerView.Adapter<EventoAdapter.EventoViewHolder> {
+public class EventoAdapter extends BaseAdapter {
 
-	private ArrayList<Evento> eventos;
+	private Context context;
+	private final int layout;
+	private final List<Evento> eventos;
+	
+	public EventoAdapter(Context context, int layout, List<Evento> eventos) {
+		this.context = context;
 
-	public EventoAdapter(ArrayList<Evento> eventos) {
+		this.layout = layout;
 		this.eventos = eventos;
 	}
 
-	@NonNull
-	@Override
-	public EventoViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-		View itemView = LayoutInflater.from(viewGroup.getContext())
-				.inflate(R.layout.item_lista_eventos, viewGroup, false);
-		return new EventoViewHolder(itemView);
-	}
 
 	@Override
-	public void onBindViewHolder(@NonNull EventoViewHolder viewHolder, int i) {
+	public View getView(int i, View view, ViewGroup viewGroup) {
+		
+		EventosViewHolder holder = null;
+		
+		if (view == null) {
+			view = LayoutInflater.from(context).inflate(layout, null);
+			
+			holder = new EventosViewHolder();
+			holder.nombre = view.findViewById(R.id.nombre);
+			holder.precio = view.findViewById(R.id.precio);
+			holder.descripcion = view.findViewById(R.id.descripcion);
+			holder.coordenadas = view.findViewById(R.id.coordenadas);
+			
+			view.setTag(holder);
+		} else {
+			holder = (EventosViewHolder) view.getTag();
+		}
+
 		Evento evento = eventos.get(i);
+		holder.nombre.setText(evento.getNombre());
+		holder.descripcion.setText(evento.getDescripcion());
+		holder.precio.setText(String.valueOf(evento.getPrecio()));
+		String coordenadas = evento.getLatitud() + ", " + eventos.get(i).getLongitud();
+		holder.coordenadas.setText(coordenadas);
 
-		viewHolder.nombre.setText(evento.getNombre());
-		viewHolder.descripcion.setText(evento.getDescripcion());
-		viewHolder.precio.setText(String.valueOf(evento.getPrecio()));
-		String coordenadas = evento.getX() + ", " + eventos.get(i).getY();
-		viewHolder.coordenadas.setText(coordenadas);
+		return view;
+	}
+	
+	private static class EventosViewHolder {
+		private TextView nombre, descripcion, precio, coordenadas;
 	}
 
 	@Override
-	public int getItemCount() {
+	public int getCount() {
 		return eventos.size();
 	}
 
-	public class EventoViewHolder extends RecyclerView.ViewHolder {
-		private TextView nombre, descripcion, precio, coordenadas;
-
-		public EventoViewHolder(@NonNull View itemView) {
-			super(itemView);
-
-			this.nombre = itemView.findViewById(R.id.nombre);
-			this.precio = itemView.findViewById(R.id.precio);
-			this.descripcion = itemView.findViewById(R.id.descripcion);
-			this.coordenadas = itemView.findViewById(R.id.coordenadas);
-		}
+	@Override
+	public Object getItem(int i) {
+		return eventos.get(i);
 	}
+
+	@Override
+	public long getItemId(int i) {
+		return i;
+	}
+
 }

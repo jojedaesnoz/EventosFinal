@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".EventoActivity">
+    tools:context=".activities.EventoActivity">
 
 
     <EditText
@@ -43,14 +43,14 @@
             android:id="@+id/etX"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:hint="@string/coordenada_x"
+            android:hint="@string/latitud"
             android:inputType="numberDecimal"/>
 
         <EditText
             android:id="@+id/etY"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:hint="@string/coordenada_y"
+            android:hint="@string/longitud"
             android:inputType="numberDecimal"/>
 
     </LinearLayout>
@@ -69,7 +69,7 @@
             android:text="@string/cancelar"/>
 
         <Button
-            android:id="@+id/btGuardar"
+            android:id="@+id/btRegistrar"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="@string/guardar"/>
