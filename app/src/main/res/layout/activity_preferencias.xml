@@ -5,13 +5,6 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent">
     <PreferenceCategory android:title="Ajustes">
-        <!--<ListPreference-->
-            <!--android:key="tamano"-->
-            <!--android:title="Tamaño"-->
-            <!--android:summary="Elige tu tamaño, a tu gusto"-->
-            <!--android:dialogTitle="Indicar color"-->
-            <!--android:entries="@array/tamano"-->
-            <!--android:entryValues="@array/tamano2"/>-->
         <EditTextPreference
             android:key="opcion_nombre_app"
             android:title="Nombre app"
@@ -29,13 +22,5 @@
             android:summaryOff="Modo edición desactivado"
             android:switchTextOn="true"
             android:switchTextOff="false"/>
-        <!--<ListPreference-->
-            <!--android:key="color"-->
-            <!--android:title="Color"-->
-            <!--android:summary="Diseño de la aplicacion"-->
-            <!--android:dialogTitle="Indicar color"-->
-            <!--android:entries="@array/color"-->
-            <!--android:entryValues="@array/colores"-->
-            <!--/>-->
     </PreferenceCategory>
 </PreferenceScreen>

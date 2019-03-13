@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class Evento implements Serializable {
 
+	private long id;
 	private String nombre;
 	private String descripcion;
 	private float precio;

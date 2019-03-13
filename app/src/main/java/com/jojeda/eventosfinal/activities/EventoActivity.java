@@ -9,6 +9,7 @@ import android.widget.Toast;
 import com.jojeda.eventosfinal.R;
 import com.jojeda.eventosfinal.base.Evento;
 
+import static com.jojeda.eventosfinal.activities.MainActivity.eventos;
 import static com.jojeda.eventosfinal.util.Constantes.EVENTO;
 
 public class EventoActivity extends AppCompatActivity implements View.OnClickListener {
@@ -66,7 +67,6 @@ public class EventoActivity extends AppCompatActivity implements View.OnClickLis
 		// Si ha recibido un evento para modificar, lo borra y lo guarda
 		if (getIntent().getSerializableExtra(EVENTO) != null) {
 			evento = (Evento) getIntent().getSerializableExtra(EVENTO);
-			ListadoActivity.eventos.remove(evento);
 		} else {
 			// Si no, guarda uno nuevo
 			evento = new Evento();
@@ -85,7 +85,9 @@ public class EventoActivity extends AppCompatActivity implements View.OnClickLis
 				Double.parseDouble(etY.getText().toString()) : 0);
 
 
-		ListadoActivity.eventos.add(evento);
+		eventos.add(evento);
+		MainActivity.TareaGuardarEvento tareaGuardarEvento = new MainActivity.TareaGuardarEvento(evento);
+		tareaGuardarEvento.execute();
 
 		setResult(RESULT_OK);
 		finish();

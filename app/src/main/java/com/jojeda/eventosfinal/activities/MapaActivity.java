@@ -22,6 +22,8 @@ import com.mapbox.mapboxsdk.maps.MapView;
 import com.mapbox.mapboxsdk.maps.MapboxMap;
 import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
 
+import static com.jojeda.eventosfinal.activities.MainActivity.eventos;
+
 public class MapaActivity extends AppCompatActivity implements View.OnClickListener {
 
 	MapView mapaView;
@@ -65,7 +67,7 @@ public class MapaActivity extends AppCompatActivity implements View.OnClickListe
 				double longitud = -3.701045;
 				LatLng madrid = new LatLng(latitud, longitud);
 
-				for (Evento evento : ListadoActivity.eventos) {
+				for (Evento evento : eventos) {
 					LatLng posicion = new LatLng(evento.getLatitud(), evento.getLongitud());
 					mapa.addMarker(new MarkerOptions().position(posicion)
 							.title(evento.getNombre()).snippet(evento.getDescripcion()));
@@ -118,7 +120,8 @@ public class MapaActivity extends AppCompatActivity implements View.OnClickListe
 				evento.setPrecio(Float.parseFloat(etPrecio.getText().toString()));
 			evento.setLatitud(ultimoMarker.getPosition().getLatitude());
 			evento.setLongitud(ultimoMarker.getPosition().getLongitude());
-			ListadoActivity.eventos.add(evento);
+			eventos.add(evento);
+			new MainActivity.TareaGuardarEvento(evento).execute();
 
 			// Colocar la informacion en el marker
 			ultimoMarker.setTitle(evento.getNombre());

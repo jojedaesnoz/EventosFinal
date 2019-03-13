@@ -18,6 +18,7 @@ import com.jojeda.eventosfinal.util.EventoAdapter;
 import java.util.ArrayList;
 import java.util.Random;
 
+import static com.jojeda.eventosfinal.activities.MainActivity.eventos;
 import static com.jojeda.eventosfinal.util.Constantes.EVENTO;
 
 public class ListadoActivity extends AppCompatActivity implements View.OnClickListener {
@@ -26,32 +27,7 @@ public class ListadoActivity extends AppCompatActivity implements View.OnClickLi
 	private static final int CREAR_EVENTO = 1;
 	private EventoAdapter adapter;
 	private ListView lista;
-	public static ArrayList<Evento> eventos;
 
-	static {
-		eventos = new ArrayList<>();
-		generarEventosDesdeCliente();
-	}
-
-	private static void generarEventosDesdeCliente() {
-
-		double latitudBase = 40.414443;
-		double longitudBase = -3.701045;
-		Random random = new Random();
-		int masMenos = 1;
-
-		for (int i = 0; i < 20; i++) {
-			String nombre = "Evento número " + i;
-			String descripcion = "Se llevarán a cabo una serie de actividades relacionadas " +
-					"con el ocio, la cultura y el deporte";
-			float precio = random.nextFloat() * 20;
-			masMenos = random.nextBoolean() ? 1 : -1;
-			double latitud = latitudBase + (random.nextDouble()/20 * masMenos);
-			masMenos = random.nextBoolean() ? 1 : -1;
-			double longitud = longitudBase + (random.nextDouble()/20 * masMenos);
-			eventos.add(new Evento(nombre, descripcion, precio, latitud, longitud));
-		}
-	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
